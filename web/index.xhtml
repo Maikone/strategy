@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body style="background-color: #111111;">
+
+        <div align="center" >
+            <p:panel   id="pnlAutenticacao"        style=""   >
+
+
+                <h:form >
+                    <p:growl id="growl" showDetail="true" sticky="true" /> 
+                    <h:panelGrid columns="2">
+
+
+                        <p:outputLabel value="Login  com CPF: " for="txtCpf" escape="false"/>
+                        <p:inputText value="#{usuarioBean.usuario.cpf}" id="txtCpf"/>
+                        <br></br>
+                        <h:outputText value="&lt;br/&gt;" escape="false" />
+                        <p:outputLabel value="Senha " for="txtSenha"/>
+                        <p:password value="#{usuarioBean.usuario.senha}" id="txtSenha"  />
+                        <br></br>
+                        <br></br>
+                    </h:panelGrid>
+                    <p:commandButton action="#{usuarioBean.login()}" value="Login" update="@form" />                        
+                    <p:commandButton action="cadastro.jsf" value="Cadastrar" />
+
+                </h:form>
+
+
+            </p:panel>
+        </div>
+    </h:body>
+</html>
+

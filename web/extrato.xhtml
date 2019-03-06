@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="Template/template.xhtml">
+        <ui:define name="conteudo ">    
+
+
+            <h1>EXTRATO</h1> 
+            <f:metadata>
+                <f:event type="preRenderView" listener="#{extratoBean.listarExtrato()}"/>
+            </f:metadata>
+            <div align="center" >
+                <h:form> 
+                     <p:growl id="growl" showDetail="true" sticky="true" /> 
+                    <p:dataTable  style="width:1006px" value="#{extratoBean.extratos}" var="e" >
+                        
+
+                        <p:column>
+                            <f:facet name="header">Valor da Movimentação</f:facet>
+                            <h:outputText value="#{e.valor}" />
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">Tipo de Movimentação</f:facet>
+                            <h:outputText value="#{e.tipo}"/>
+                        </p:column> 
+                        <p:column>
+                            <f:facet name="header">Beneficiado</f:facet>
+                            <h:outputText value="#{e.beneficiado}"/>
+                        </p:column> 
+                        <p:column>
+                            <f:facet name="header">Data da Movimentação</f:facet>
+                            <h:outputText value="#{e.data}"/>
+                        </p:column> 
+
+
+                    </p:dataTable>
+
+
+                </h:form>
+            </div>
+
+
+        </ui:define>
+
+    </ui:composition>
+
+
+
+</html>

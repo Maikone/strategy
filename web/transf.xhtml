@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="Template/template.xhtml">
+        <ui:define name="conteudo ">    
+
+
+            <h1>Transferencia</h1> 
+
+            <h:form>  
+                <p:growl id="growl" showDetail="true" sticky="true" /> 
+
+                <h:panelGrid columns="3">
+                    <p:outputLabel value="Cpf do Beneficiado" for="txtId" escape="false"/>
+                    <p:inputText value="#{usuarioBean.usuario.cpf}" id="txtId"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel value="Nome" for="txtNome" escape="false"/>
+                    <p:inputText value="#{usuarioBean.usuario.nome}" id="txtNome"/>
+                    <br></br>
+                    <br></br>
+                    <p:outputLabel value="Valor da Transferencia" for="txtTransfer" escape="false"/>
+                    <p:inputText value="#{usuarioBean.usuario.saldo}" id="txtTransfer"/>
+                    <br></br><br></br>
+                    <br></br>
+                    <p:commandButton action="#{usuarioBean.transferir()}"  update="@form"   value="Transferir"/>
+                    <p:commandButton action="#{usuarioBean.buscarPorCpf()}" update="@form"  value="Buscar"/>
+                    <br></br>
+
+                    <br></br>
+                    <br></br>
+
+
+                </h:panelGrid>
+
+            </h:form>
+
+
+
+        </ui:define>
+
+    </ui:composition>
+
+
+
+</html>
